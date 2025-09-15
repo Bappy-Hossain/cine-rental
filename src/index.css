@@ -1,0 +1,20 @@
+@import "tailwindcss";
+.container {
+  padding: 20px;
+  margin: auto;
+  margin-top: 15px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.dark {
+  @apply bg-[#171923] text-white;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+.primary {
+  color: #00d991;
+}

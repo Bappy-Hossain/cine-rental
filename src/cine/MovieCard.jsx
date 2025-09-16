@@ -4,6 +4,7 @@ import MovieDetails from "./MovieDetails";
 import Rating from "./Rating";
 import tag from "../assets/tag.svg";
 import { MovieContext } from "../context";
+import { toast } from "react-toastify";
 
 export default function MovieCard({ movie }) {
   const [showModal, setShowModal] = useState(false);
@@ -32,9 +33,17 @@ export default function MovieCard({ movie }) {
           ...movie,
         },
       });
+      toast.success(`Movie ${movie.title} added successfully!`, {
+        position: "bottom-right",
+        theme: "colored",
+      });
     } else {
-      console.error(
-        `The movie ${movie.title} has been added to the cart already!`
+      toast.error(
+        `The movie ${movie.title} has been added to the cart already!`,
+        {
+          position: "bottom-right",
+          theme: "colored",
+        }
       );
     }
   }

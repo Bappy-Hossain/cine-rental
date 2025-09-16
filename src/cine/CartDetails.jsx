@@ -3,6 +3,7 @@ import DeleteIcon from "../assets/delete.svg";
 import { useContext } from "react";
 import { MovieContext } from "../context";
 import { getImgUrl } from "../utils/cine-utility";
+import { toast } from "react-toastify";
 
 export default function CartDetails({ onClose }) {
   const { state, dispatch } = useContext(MovieContext);
@@ -13,6 +14,10 @@ export default function CartDetails({ onClose }) {
       payload: {
         id: itemId,
       },
+    });
+    toast.success(`The movie deleted successfully!`, {
+      position: "bottom-right",
+      theme: "colored",
     });
   }
   return (
